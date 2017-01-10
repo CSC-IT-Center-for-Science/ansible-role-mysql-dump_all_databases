@@ -1,4 +1,5 @@
 #!/bin/bash
+# {{ ansible_managed }}
 # Daniel Verner 
 # CarrotPlant LLC
 # 2011
@@ -18,7 +19,11 @@
 
 PROG_NAME=$(basename $0)
 USER=""
+{% if mysql_root_db_pass is defined %}
+PASSWORD="{{ mysql_root_db_pass }}"
+{% else %}
 PASSWORD=""
+{% endif %}
 OUTPUTDIR=${PWD}
 GZIP_ENABLED=0
 GZIP=""

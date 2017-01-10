@@ -1,8 +1,8 @@
 ---
 # tasks file for ansible-role-mysql-dump_all_databases
 
-  - name: copy in dump-all-databases.sh
-    copy:
+  - name: template in dump-all-databases.sh
+    template:
       src: dump-all-databases.sh
       dest: "{{ mysql_dump_dest }}"
       owner: "{{ mysql_dump_owner }}"

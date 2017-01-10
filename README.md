@@ -12,6 +12,8 @@ Requirements
 Role Variables
 --------------
 
+set {{ mysql_root_db_pass }} to template in a password into the dump-all-file file
+
 See defaults/main.yml
 
 Dependencies
