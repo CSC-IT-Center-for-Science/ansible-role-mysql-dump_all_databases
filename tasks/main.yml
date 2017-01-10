@@ -10,6 +10,12 @@
       backup: "{{ mysql_dump_backup }}"
     when: mysql_dump_enabled
 
+  - name: ensure crontabs is installed on el
+    yum: name=crontabs state=installed
+    when: 
+      - mysql_dump_cron_enabled
+      - ansible_os_family == "RedHat"
+
   - name: add cronjob to run the dump-all-script
     cron:
       name: "{{ item.name }}"
