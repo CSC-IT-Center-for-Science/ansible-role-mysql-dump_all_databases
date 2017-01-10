@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-mysql-dump_all_databases.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-mysql-dump_all_databases)
+
 ansible-role-mysql-dump_all_databases
 =========
 
