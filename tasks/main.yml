@@ -16,6 +16,16 @@
       - mysql_dump_cron_enabled
       - ansible_os_family == "RedHat"
 
+  - name: create mysql_dump_store directory
+    file: 
+      path: "{{ mysql_dump_store }}"
+      state: directory
+      owner: "{{ mysql_dump_owner }}"
+      mode: 0750
+    when: 
+      - mysql_dump_enabled
+      - mysql_dump_cron_enabled
+
   - name: add cronjob to run the dump-all-script
     cron:
       name: "{{ item.name }}"
