@@ -2,11 +2,27 @@
 # tasks file for ansible-role-mysql-dump_all_databases
 
   - name: copy in dump-all-databases.sh
-    copy: 
+    copy:
       src: dump-all-databases.sh
       dest: "{{ mysql_dump_dest }}"
       owner: "{{ mysql_dump_owner }}"
       mode: "{{ mysql_dump_mode }}"
-      backup: ”{{ mysql_dump_backup }}"
+      backup: "{{ mysql_dump_backup }}"
     when: mysql_dump_enabled
 
+  - name: add cronjob to run the dump-all-script
+    cron:
+      name: "{{ item.name }}"
+      minute: "{{ item.minute }}"
+      hour: "{{ item.hour }}"
+      day: "{{ item.day|default(omit) }}"
+      month: "{{ item.month|default(omit) }}"
+      weekday: "{{ item.weekday|default(omit) }}"
+      user: "{{ item.user }}"
+      job: "{{ item.job }}"
+      cron_file: "{{ item.name }}"
+      state: "{{ item.state|default(omit) }}"
+    with_items: "{{ mysql_dump_cronjob }}"
+    when: mysql_dump_cron_enabled
+
+...

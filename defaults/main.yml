@@ -6,3 +6,9 @@ mysql_dump_owner: "root"
 mysql_dump_mode: "0750"
 mysql_dump_backup: "no"
 mysql_dump_enabled: True
+mysql_dump_cron_enabled: "{{ mysql_dump_enabled }}"
+mysql_dump_store: "/opt/mysql_dump_store"
+
+mysql_dump_cronjob:
+  - { job: "#{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z", hour: 5, minute: 0, name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
+
