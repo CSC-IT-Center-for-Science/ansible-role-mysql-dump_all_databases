@@ -5,6 +5,8 @@ ansible-role-mysql-dump_all_databases
 
 Install and configure dump-all-databases.sh
 
+Related to https://github.com/CSC-IT-Center-for-Science/ansible-role-mysql
+
 Requirements
 ------------
 
