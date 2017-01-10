@@ -1,0 +1,8 @@
+---
+# defaults file for ansible-role-mysql-dump_all_databases
+
+mysql_dump_dest: "/usr/local/sbin/dump-all-databases.sh"
+mysql_dump_owner: "root"
+mysql_dump_mode: "0750"
+mysql_dump_backup: "no"
+mysql_dump_enabled: True

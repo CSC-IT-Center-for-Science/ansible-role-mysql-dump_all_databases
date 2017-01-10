@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-role-mysql-dump_all_databases
+
+  - name: copy in dump-all-databases.sh
+    copy: 
+      src: dump-all-databases.sh
+      dest: "{{ mysql_dump_dest }}"
+      owner: "{{ mysql_dump_owner }}"
+      mode: "{{ mysql_dump_mode }}"
+      backup: ”{{ mysql_dump_backup }}"
+    when: mysql_dump_enabled
+
