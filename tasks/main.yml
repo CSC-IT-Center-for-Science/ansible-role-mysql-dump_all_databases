@@ -3,7 +3,7 @@
 
   - name: template in dump-all-databases.sh
     template:
-      src: dump-all-databases.sh
+      src: dump-all-databases.sh.j2
       dest: "{{ mysql_dump_dest }}"
       owner: "{{ mysql_dump_owner }}"
       mode: "{{ mysql_dump_mode }}"
