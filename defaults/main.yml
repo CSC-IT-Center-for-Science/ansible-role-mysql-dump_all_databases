@@ -13,5 +13,5 @@ mysql_dump_store: "/opt/mysql_dump_store"
 # it is also possible to set a state, day, month, weekday. 
 # See tasks/main.yml for which are supported
 mysql_dump_cronjob:
-  - { minute: "0", hour: 5, job: "{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z 2>&1 >/dev/null", name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
+  - { minute: "0", hour: 5, job: "{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z 1>/dev/null", name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
 
