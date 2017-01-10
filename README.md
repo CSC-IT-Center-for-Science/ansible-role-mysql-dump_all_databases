@@ -3,7 +3,7 @@
 ansible-role-mysql-dump_all_databases
 =========
 
-Install and configure dump-all-databases.sh
+Install and configure a cronjob to dump all mysql databases with the dump-all-databases.sh script
 
 Related to https://github.com/CSC-IT-Center-for-Science/ansible-role-mysql
 
@@ -14,7 +14,7 @@ Requirements
 Role Variables
 --------------
 
-set {{ mysql_root_db_pass }} to template in a password into the dump-all-file file
+Set ansible variable {{ mysql_root_db_pass }} to template in a password into the dump-all-file file
 
 See defaults/main.yml
 

@@ -10,6 +10,8 @@ mysql_dump_cron_enabled: "{{ mysql_dump_enabled }}"
 mysql_dump_store: "/opt/mysql_dump_store"
 
 #having minute set to "#0" means the cronjob is commented out
+# it is also possible to set a state, day, month, weekday. 
+# See tasks/main.yml for which are supported
 mysql_dump_cronjob:
-  - { minute: "#0", hour: 5, job: "{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z", name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
+  - { minute: "0", hour: 5, job: "{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z", name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
 
