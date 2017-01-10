@@ -9,6 +9,7 @@ mysql_dump_enabled: True
 mysql_dump_cron_enabled: "{{ mysql_dump_enabled }}"
 mysql_dump_store: "/opt/mysql_dump_store"
 
+#having minute set to "#0" means the cronjob is commented out
 mysql_dump_cronjob:
-  - { job: "#{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z", hour: 5, minute: 0, name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
+  - { minute: "#0", hour: 5, job: "{{ mysql_dump_dest }} -o {{ mysql_dump_store }} -z", name: "mysql_dump_all", user: "{{ mysql_dump_owner }}" }
 
